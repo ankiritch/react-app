@@ -1,0 +1,22 @@
+import React from 'react'
+
+export default function Navbar() {
+  return (
+    <nav className='nav'>
+        <a href='/' className='site-title'>Site Name</a>
+        <ul>
+            <CustomLink href='/todos'>Todos</CustomLink>
+            <CustomLink href='/name'>Name</CustomLink>       
+        </ul>
+    </nav>
+  )
+}
+
+function CustomLink ({ href, children, ...props }) {
+    const path = window.location.pathname
+    return(
+        <li className={path === href ? "active" : ""}>
+            <a href={href} {...props}>{children}</a>
+        </li>
+    )
+}
